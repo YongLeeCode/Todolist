@@ -1,50 +1,114 @@
-# React + TypeScript + Vite
+# 프론트엔드 단기심화 과제
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 프로젝트 개요
 
-Currently, two official plugins are available:
+- 제목: **Todo List**
+- 소개: 할 일 목록을 관리하는 To Do 서비스
+- 필수 기술 스택: **Next.js**, **TypeScript**
+- 디자인 시안: https://www.figma.com/design/zcM3VfCNbtiqt5aLhlv4sV/%5BKDT-%EB%8B%A8%EA%B8%B0%EC%8B%AC%ED%99%94%5D-%EC%A7%80%EC%9B%90%EC%9E%90-%EA%B3%BC%EC%A0%9C?node-id=53-2&t=Elsxy4p3kboqNW6B-1
+- Swagger 문서: https://assignment-todolist-api.vercel.app/docs/
+- API: https://assignment-todolist-api.vercel.app/api
+    - API 요청을 보낼 시, 본인만의 tenantId(닉네임, 아이디 등 식별자)를 만들어 [https://assignment-todolist-api.vercel.app/api/{tenantId}](https://assignment-todolist-api.vercel.app/api/{tenantId}/items) 로 요청을 보내주세요.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 기획 요구사항
+> 프로젝트에서 반드시 구현해야 할 구현 요구사항입니다.
+> 
 
-- Configure the top-level `parserOptions` property like this:
+### 공통
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- 제시된 폰트, 컬러 시스템을 설정해 주세요.
+- 재사용성을 위해 공용 컴포넌트를 만들어 주세요.
+- 반응형 웹 디자인을 준수해주세요
+    - 모바일 레이아웃
+    - 태블릿 레이아웃
+    - 데스크탑 레이아웃
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 할 일 목록 페이지(`/`)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+**목록 조회**
+
+- ‘로고’ 버튼을 클릭하면 ‘/’ 페이지로 이동합니다. (새로고침)
+- 진행 중인 할 일과 완료된 할 일을 나누어 볼 수 있습니다.
+
+**할 일 추가**
+
+- 상단 입력창에 할 일 텍스트를 입력하고 `추가하기` 버튼을 클릭하거나 엔터를 치면 할 일을 새로 생성합니다.
+
+**할 일 완료**
+
+- 진행 중 할 일 항목의 왼쪽 버튼을 클릭하면 체크 표시가 되면서 완료 상태가 됩니다.
+- 완료된 할 일 항목의 왼쪽 버튼을 다시 클릭하면 체크 표시가 사라지면서 진행 중 상태가 됩니다.
+
+
+### 할 일 상세 페이지(`/items/{itemId}`)
+
+**할 일 수정**
+
+- 할 일 항목을 클릭한 후 항목 수정이 가능합니다.
+- 항목 이름을 수정할 수 있습니다.
+- 메모를 추가할 수 있습니다.
+- 이미지(최대 1개)를 첨부할 수 있습니다.
+    - 이미지 파일 이름은 영어로만 이루어져야 합니다.
+    - 파일 크기는 5MB 이하여야 합니다.
+- `수정 완료` 버튼을 클릭하면 수정 사항이 반영되고, 할 일 목록 페이지로 이동합니다.
+
+**할 일 삭제**
+
+- `삭제하기` 버튼을 클릭하면 할 일 삭제가 가능하며, 삭제 후 할 일 목록 페이지로 이동합니다.
+
+### **추가 요구사항**
+
+- **코드 주석 및 문서화**
+    - 주요 기능과 컴포넌트에 대한 주석을 작성해 주세요.
+- **README.md 파일 작성**
+    - 프로젝트 설명과 사용 방법을 명시해 주세요.
+
+
+## 평가 체크리스트
+
+> 아래는 프로젝트 요구사항이 충족되었는지 점검할 수 있는 체크리스트입니다.
+제출 전, 각 항목을 확인하면서 모든 기능들이 구현되었는지 확인해 주세요.
+> 
+
+### **공통**
+
+- [ ]  **폰트 설정**: 제시된 폰트가 프로젝트에 적용되었나요?
+- [ ]  **컬러 시스템 설정**: 디자인 시안에 따른 컬러 시스템이 구현되었나요?
+- [ ]  **공용 컴포넌트 작성**: 공통적으로 사용되는 UI 요소가 재사용 가능한 컴포넌트로 작성되었나요?
+- [ ]  **반응형 웹 디자인**:
+    - [ ]  모바일 레이아웃에서 정상적으로 작동하나요?
+    - [ ]  태블릿 레이아웃에서 정상적으로 작동하나요?
+    - [ ]  데스크탑 레이아웃에서 정상적으로 작동하나요?
+
+### **할 일 목록 페이지(`/`)**
+
+- [ ]  **목록 조회 기능**:
+    - [ ]  로고 버튼을 클릭했을 때 `/` 페이지로 이동(새로고침)이 되나요?
+    - [ ]  진행 중인 할 일과 완료된 할 일이 구분되어 표시되나요?
+- [ ]  **할 일 추가 기능**:
+    - [ ]  입력창에 할 일을 입력하고 `추가하기` 버튼을 클릭하거나 엔터를 눌렀을 때 새로운 할 일이 생성되나요?
+- [ ]  **할 일 완료 처리**:
+    - [ ]  진행 중인 할 일 항목의 체크박스를 클릭했을 때 완료 상태로 변경되나요?
+    - [ ]  완료된 할 일 항목의 체크박스를 클릭했을 때 다시 진행 중 상태로 변경되나요?
+
+### **할 일 상세 페이지(`/items/{itemId}`)**
+
+- [ ]  **할 일 수정 기능**:
+- [ ]  할 일 항목의 이름을 수정할 수 있나요?
+- [ ]  메모를 추가할 수 있나요?
+- [ ]  이미지를 첨부할 수 있나요? (이미지 파일 이름은 영어로만 이루어지고, 크기는 5MB 이하인가요?)
+- [ ]  `수정 완료` 버튼을 클릭했을 때 수정 사항이 반영되고 할 일 목록 페이지로 이동되나요?
+- [ ]  다시 할 일을 클릭했을 때 추가된 메모와 이미지가 잘 보이나요?
+- [ ]  **할 일 삭제 기능**:
+    - [ ]  `삭제하기` 버튼을 클릭했을 때 할 일이 삭제되고, 할 일 목록 페이지로 이동되나요?
+
+### **추가 요구사항**
+
+- [ ]  **코드 주석 및 문서화**:
+    - [ ]  주요 기능과 컴포넌트에 대한 주석이 작성되었나요?
+- [ ]  **README.md 작성**:
+    - [ ]  프로젝트 설명이 명시되었나요?
+    - [ ]  사용 방법이 명시되었나요?
