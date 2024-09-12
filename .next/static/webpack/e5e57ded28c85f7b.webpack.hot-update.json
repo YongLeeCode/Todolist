@@ -1,0 +1,1 @@
+{"c":["pages/index","pages/items/[id]","webpack"],"r":["pages/items/[id]"],"m":["./node_modules/next/dist/build/webpack/loaders/next-client-pages-loader.js?absolutePagePath=%2FUsers%2Fyong%2FCode%2Ftodolist%2Ftodolist%2Fsrc%2Fpages%2Fitems%2F%5Bid%5D%2Findex.tsx&page=%2Fitems%2F%5Bid%5D!","./src/components/TodoDetail.tsx","./src/pages/items/[id]/index.tsx"]}

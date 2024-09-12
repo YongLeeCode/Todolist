@@ -1,0 +1,23 @@
+/* phone */
+@media screen and (max-width: 400px) {
+  .logo {
+    background-image: url('/logos.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left;
+    height: 40px;
+    margin: 10px 0px;
+  }
+
+}
+
+/* tablet */
+@media screen and (min-width: 400px) {
+  .logo {
+    background-image: url('/logol.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 40px;
+  }
+}

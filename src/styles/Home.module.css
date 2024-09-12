@@ -1,0 +1,36 @@
+
+
+/* phone */
+@media screen and (max-width: 400px) {
+  .home {
+    margin: 0px 10px auto;
+  }
+  .addInput {
+    width: 70%;
+    height: 56px;
+    border: 2px solid black;
+    border-radius: 20%;
+    margin: 3px;
+    background-color: var(--violet600);
+  }
+}
+
+/* tablet */
+@media screen and (min-width: 600px) and (max-width: 960px) {
+  .home {
+    margin: 0px 10px auto;
+  }
+}
+
+/* desktop */
+@media screen and (min-width: 960px) {
+  .home {
+    width: 800px;
+    margin: 0px 10px auto;
+  }
+  
+}
+.test {
+  background-image: url('/memo.png');
+  height: 400px;
+}

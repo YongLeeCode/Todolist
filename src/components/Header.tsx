@@ -1,9 +1,10 @@
+import styles from "../styles/Header.module.css";
+
+import Link from "next/link";
 function Header() {
   return (
     <header>
-      <a href="http://localhost:5173">
-        <h1>Logo</h1>
-      </a>
+      <Link href="/"><div className={styles.logo}></div></Link>
     </header>
   );
 }

@@ -1,43 +1,39 @@
+// components/Post.tsx
 import { useState } from "react";
+import Link from 'next/link'
+import { handleChange } from '../model/handler';
 
-function Post(props: {selected: boolean}) {
-  const [isChecked, setIsChecked] = useState(false);
-  const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+interface PostProps {
+  post: {
+    id: string
+    name: string
+    isCompleted: boolean
   }
-  const items = [
-    {id: 0, 
-      tenantId: '테1',
-      name: 'name1',
-      memo: '',
-      imageUrl: '',
-      isCompleted: false,
-    },
-    {id: 1, 
-      tenantId: '테2',
-      name: 'name2',
-      memo: '',
-      imageUrl: '',
-      isCompleted: true,
-    }
-  ];
+  onStatusChange: () => void
+}
+
+const Post: React.FC<PostProps> = (props) => {
+  const [isChecked, setIsChecked] = useState(props.post.isCompleted);
+
+  const checkStatus = async () => {
+    const updatedPost = {
+      isCompleted: !isChecked, 
+    };
+    setIsChecked(!isChecked);
+    await handleChange(props.post.id, updatedPost);
+    props.onStatusChange();
+  };
 
   return (
     <>
-      {items.map((item) => (
-        <div key={item.id}>
-          {item.isCompleted==props.selected && (
-            <>
-              <input
-                type="checkbox"
-                checked={isChecked}
-                onChange={handleCheckboxChange}
-              />
-              <h4>{item.name} </h4>
-            </>
-          )}
-        </div>
-      ))}
+      <input
+        type="checkbox"
+        checked={isChecked}
+        onChange={checkStatus}
+      />
+      <Link href={`/items/${props.post.id}`}>
+        {props.post.name}
+      </Link>
     </>
   );
 }
