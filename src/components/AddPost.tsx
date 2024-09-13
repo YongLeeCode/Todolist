@@ -11,7 +11,7 @@ function AddPost() {
   };
 
   return (
-    <div>
+    <div className={styles.addContainer}>
       <input
         type="text"
         value={postName}
@@ -19,7 +19,7 @@ function AddPost() {
         placeholder="할 일을 입력해주세요"
         className={styles.addInput}
       />
-      <button onClick={handleAddPost}>+추가하기</button>
+      <button className={styles.addBtn} onClick={handleAddPost}></button>
     </div>
   );
 }

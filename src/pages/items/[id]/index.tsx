@@ -1,3 +1,5 @@
+import styles from '../../../styles/Detail.module.css'
+
 import { useRouter } from 'next/router'
 import { NextPage } from 'next'
 import { useEffect, useState } from 'react'
@@ -6,6 +8,7 @@ import { fetchPostHandler } from '../../../model/handler'
 //components
 import Header from '../../../components/Header'
 import TodoDetail from '../../../components/TodoDetail'
+
 const ItemPage: NextPage = () => {
   const [todo, setTodo] = useState([]);
   const router = useRouter()
@@ -26,8 +29,9 @@ const ItemPage: NextPage = () => {
   };
 
   return (
-    <div>
+    <div className={styles.detailPage}>
       <Header />
+      <hr />
       <TodoDetail post={todo} onStatusChange={refreshPosts}/>
     </div>
   )

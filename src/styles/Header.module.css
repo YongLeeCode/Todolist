@@ -11,13 +11,14 @@
 
 }
 
-/* tablet */
-@media screen and (min-width: 400px) {
+/* tablet and PC */
+@media screen and (min-width: 401px) {
   .logo {
     background-image: url('/logol.png');
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: left;
     height: 40px;
+    margin: 10px 0px;
   }
 }

@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from 'next/link'
 import { handleChange } from '../model/handler';
+import styles from "../styles/Home.module.css"
 
 interface PostProps {
   post: {
@@ -26,14 +27,25 @@ const Post: React.FC<PostProps> = (props) => {
 
   return (
     <>
-      <input
-        type="checkbox"
-        checked={isChecked}
-        onChange={checkStatus}
-      />
-      <Link href={`/items/${props.post.id}`}>
-        {props.post.name}
-      </Link>
+      <label className={styles.statusCheckbox}>
+        <input
+          id="statusCheckbox"
+          type="checkbox"
+          checked={isChecked}
+          onChange={checkStatus}
+          className={styles.hiddenCheckbox}
+        />
+        <span className={styles.customCheckbox}></span>
+      </label>
+      {props.post.isCompleted 
+      ? <Link className={`${styles.postName} ${styles.doneName}`} href={`/items/${props.post.id}`}>
+          {props.post.name}
+        </Link>
+      : <Link className={styles.postName} href={`/items/${props.post.id}`}>
+          {props.post.name}
+        </Link>
+      }
+      
     </>
   );
 }

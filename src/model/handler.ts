@@ -14,7 +14,6 @@ export async function fetchPostsHandler() {
       throw new Error("데이터 가져오기 실패");
     }
     const data = await response.json();
-    console.log("할 일 목록:", data);
     return data;
   } catch (error) {
     console.error("오류 발생:", error);
@@ -37,9 +36,7 @@ export async function fetchPostHandler(id: string) {
     }
 
     const data = await response.json();
-    console.log("할 일:", data);
     return data; 
-    
   } catch (error) {
     console.error("오류 발생:", error);
     alert("할 일 목록을 불러오는 데 실패했습니다.");
@@ -67,6 +64,29 @@ export const handleChange = async (id: string, updatedPost: any) => {
     alert("상태 업데이트에 실패했습니다.");
   }
 };
+
+// new image
+export async function addFetchImage(image: any) {
+  try {
+    const formData = new FormData();
+    formData.append('image', image);  // FormData 객체에 이미지 추가
+
+    const response = await fetch(`${baseURL}/yong/images/upload`, {
+      method: "POST",
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error("데이터 전송 실패");
+    }
+
+    const img = await response.json();
+    return img;
+  } catch (error) {
+    console.error("오류 발생:", error);
+    alert("업로드 실패?");
+  }
+}
 
 //new one
 export async function addPostHandler(postName: string, setPost: any, setPostName: any) {

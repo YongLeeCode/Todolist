@@ -1,5 +1,4 @@
-import React, { useState } from 'react'
-import styles from '../styles/home.module.css'
+import styles from '../styles/Home.module.css'
 
 //components
 import AddPost from '../components/AddPost'
@@ -10,6 +9,7 @@ function Home() {
   return (
     <div className={styles.home} >
       <Header />
+      <hr />
       <AddPost />
       <Todo />
     </div>
