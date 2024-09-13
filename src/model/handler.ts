@@ -109,7 +109,7 @@ export async function addPostHandler(postName: string, setPost: any, setPostName
     }
 
     const newPost = await response.json();
-    setPost((prevPosts) => [...prevPosts, newPost]);
+    setPost(newPost);
     setPostName(""); 
     console.log("할 일 추가 성공:", newPost);
     window.location.reload();
